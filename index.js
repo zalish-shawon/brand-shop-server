@@ -47,6 +47,50 @@ async function run() {
       res.send(result);
     })
 
+    app.get("/apple", async(req, res) => {
+      const query = {brand: 'Apple'}
+       const cursor = productCollection.find(query);
+       const result = await cursor.toArray();
+       res.send(result);
+     
+     
+    })
+
+    app.get("/samsung", async(req, res) => {
+      const query = {brand: 'Samsung',}
+      const cursor = productCollection.find(query);
+      const result = await cursor.toArray();
+      res.send(result);
+    })
+
+    app.get("/intel", async(req, res) => {
+      const query = {brand: 'Intel'}
+      const cursor = productCollection.find(query);
+      const result = await cursor.toArray();
+      res.send(result);
+    })
+    app.get("/microsoft", async(req, res) => {
+      const query = {brand: 'Microsoft'}
+      const cursor = productCollection.find(query);
+      const result = await cursor.toArray();
+      res.send(result);
+    })
+    app.get("/google", async(req, res) => {
+      const query = {brand: 'Google'}
+      const cursor = productCollection.find(query);
+      const result = await cursor.toArray();
+      res.send(result);
+    })
+    app.get("/sony", async(req, res) => {
+      const query = {brand: 'Sony'}
+      const cursor = productCollection.find(query);
+      const result = await cursor.toArray();
+      res.send(result);
+    })
+    
+
+    
+
     app.put("/products/:id", async (req, res) => {
       const id = req.params.id;
       const filter = {_id: new ObjectId(id)};
