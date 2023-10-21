@@ -1,9 +1,9 @@
 const express = require('express');
+const app = express();
 const cors = require('cors');
-const app =express();
-require('dotenv').config();
+require('dotenv').config()
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
-const port = process.env.PORT || 5001;
+const port= process.env.PORT || 5000
 
 // brandShop
 // tuOPFNSBa2lPWhQD
@@ -24,7 +24,7 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
-    // await client.connect();
+    //  await client.connect();
     const productCollection = client.db("productsDB").collection("products");
     const myCartCollection = client.db("productsDB").collection("myCart");
 
@@ -151,12 +151,8 @@ run().catch(console.dir);
 
 app.use(express.json())
 
-const corsConfig = {
-  origin: '*',
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
-  }
-app.use(cors(corsConfig));
+
+app.use(cors());
 
 app.get("/", (req, res) => {
     res.send("Brand shop server is running")
